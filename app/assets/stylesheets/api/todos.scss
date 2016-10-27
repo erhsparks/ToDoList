@@ -1,3 +1,106 @@
 // Place all the styles related to the api/todos controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+body, h1, p, div, aside, span, ul, li, label, input#title, textarea {
+  font-family: sans-serif;
+  text-decoration: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  // opacity: inherit;
+}
+
+body {
+  background: lightblue;
+  display: flex;
+  flex-direction: column;
+}
+
+#content {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.list-title {
+  text-align: center;
+  background: white;
+  margin: 0px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
+  position: fixed;
+  width: 100%;
+}
+
+.todo-list {
+  display: flex;
+  flex-direction: row;
+  margin: 92px 20px 20px;
+}
+
+.todo-list-items {
+  list-style: none;
+  background: white;
+  border: 2px solid black;
+  display: flex;
+  flex-direction: column-reverse;
+  margin-top: -3px;
+  width: 65%;
+}
+
+.todo-list-item {
+  display: flex;
+  flex-direction: column;
+  border: 2px solid black;
+  width: 76%;
+  margin: 10px auto;
+  padding: 5px;
+}
+
+.done {
+  background: RGBa(0,255,0,.4);
+}
+
+.not-done {
+  background: RGBa(255,0,0,.4);
+}
+
+.todo-list-item > h1 {
+  vertical-align: baseline;
+  padding: 13px 0px 2px;
+  border-bottom: 1px dashed black;
+  text-align: center
+}
+
+.todo-list-item > p {
+  padding: 25px;
+  vertical-align: baseline;
+  text-align: center;
+}
+
+.todo-list-form {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  padding: 0px 0px 0px 20px;
+  width: 31.5%;
+}
+
+.todo-list-form > label, textarea, input {
+  margin: 7px 0px;
+}
+
+.todo-list-form > textarea, input#title {
+  border: 1px solid grey;
+  padding: 2.5px;
+  margin-bottom: 7px;
+}
+
+.todo-list-form > textarea {
+  height: 60%;
+}

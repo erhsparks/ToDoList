@@ -1,7 +1,10 @@
 import React from 'react';
 
-const todoListItem = (todos) => (todos.map((todo, index)  => (
-   <li key={index}>{todo.title}</li>
- )));
+const TodoListItem = ({ todo }) => (
+  <li className={`todo-list-item ${todo.done ? 'done' : 'not-done'}`}>
+    <h1>{todo.title}</h1>
+    <p>{todo.body}</p>
+  </li>
+ );
 
- export default todoListItem;
+ export default TodoListItem;

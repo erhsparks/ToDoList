@@ -11,15 +11,13 @@ const TodosReducer = (state = _defaultState, action) => {
     case RECEIVE_TODOS:
       let newState = {};
       action.todos.forEach(todo => {
-        newState[todo.id] = merge({}, todo);
+        newState[todo.id] = todo;
       });
       return newState;
-
     case RECEIVE_TODO:
       newState = merge({}, state);
       newState[action.todo.id] = action.todo;
       return newState;
-
     default:
       return state;
   }

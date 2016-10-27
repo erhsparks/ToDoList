@@ -10,7 +10,7 @@ export const fetchTodos = (success, error) => {
 export const createTodo = (todo, success, error) => {
   $.ajax({
     method: 'POST',
-    url: 'api/todos/',
+    url: 'api/todos',
     data: todo,
     success,
     error

@@ -3,63 +3,39 @@ import React from 'react';
 class TodoListForm extends React.Component {
   constructor(props){
     super(props);
-    this.state = {
-      todos: {
-        title: "",
-        body: "",
-        done: "false"
-      }
-    };
 
     this.handleClick = this.handleClick.bind(this);
   }
-
 
   handleClick(e) {
     e.preventDefault();
 
     let newTitle = document.getElementById('title');
     let newBody = document.getElementById('body');
-    let newDone = document.getElementById('done');
-    this.props.createTodo({
-      todos: {
-        title: newTitle.value,
-        body: newBody.value,
-        done: newDone.value
-      }
-    });
-    window.state = this.state;
-    window.newTitle = newTitle;
-    window.newBody = newBody;
-    window.newDone = newDone;
+
+    let todo = {
+      title: newTitle.value,
+      body: newBody.value,
+      done: false
+    };
+
+    this.props.createTodo({todo});
   }
 
   render() {
     return(
-      <div>
-        <form>
+      <div className="todo-list-form-container">
+        <form className="todo-list-form">
           <label htmlFor="title">Title: </label>
-          <input id="title" name="title" type="text" />
+          <input id="title" ref="title" type="text" />
 
           <label htmlFor="body">Description: </label>
-          <textarea id="body" name="body"></textarea>
+          <textarea id="body" ref="body" rows="10"></textarea>
 
-          <label htmlFor="done">Completed? </label>
-          <input type="radio"
-                  id="done"
-                  name="done" value="true"
-                  />Yes
-
-                <input type="radio"
-                  id="done"
-                  name="done"
-                  value="false"
-                  />No
-
-          <input type='submit' value="Create Todo"
-            onClick={e => this.handleClick(e)} />
+          <input type='submit'
+                 value="Create Todo"
+                 onClick={this.handleClick} />
         </form>
-
       </div>
     );
   }

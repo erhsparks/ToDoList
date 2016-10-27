@@ -9,6 +9,7 @@ class Api::TodosController < ApplicationController
 
   def create
     @todo = Todo.new(todo_params)
+
     if @todo.save
       render json: @todo
     else
@@ -18,6 +19,7 @@ class Api::TodosController < ApplicationController
 
   def update
     @todo = Todo.find(params[:id])
+
     if @todo.update(todo_params)
       render json: @todo
     else
@@ -27,6 +29,7 @@ class Api::TodosController < ApplicationController
 
   def destroy
     @todo = Todo.find(params[:id])
+
     if @todo.delete
       render json: @todo
     else
@@ -37,7 +40,7 @@ class Api::TodosController < ApplicationController
 
   private
   def todo_params
-    params.require(:todos).permit(:title, :body, :done)
+    params.require(:todo).permit(:title, :body, :done)
   end
 
 end
